@@ -5,15 +5,18 @@ export const getAllProducts = (): Product[]  => {
     return products.map((p) => (Object.assign({}, p)) )
 }
 
-export const getProductFromId = (id:number): Product | null => {
+export const getProductFromId = (id:number): Product => {
     const matchedProduct = products.filter((p) => p.id === id);
-    const product =  (matchedProduct.length > 0) ? Object.assign({}, matchedProduct[0]) : null
-    return product;
+    if(matchedProduct.length == 0){
+        throw new Error("Product not found");
+    }
+    return Object.assign({}, matchedProduct[0]);
 }
 
 export const updateProductFromId = (id: number, updatedProduct: Product) => {
     const productIndex = products.findIndex((element) => element.id === id);
-    if((productIndex > -1)){
-        products[productIndex] = {...updatedProduct}
+    if((productIndex == -1)){
+        throw new Error("Update not possible as product not found");
     }
+    products[productIndex] = {...updatedProduct}
 }

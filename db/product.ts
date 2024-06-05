@@ -12,7 +12,7 @@ export const products: Product[] = [
         id: 2,
         name: "Computer",
         description: "Electronic Device",
-        isActive: false,
+        isActive: true,
         quantity: 2,
     },
     {
