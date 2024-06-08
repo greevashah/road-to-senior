@@ -4,8 +4,10 @@
   "description": "getting started",
   "main": "index.js",
   "scripts": {
+    "start": "ts-node main",
+    "sample": "ts-node sample",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    },
   "author": "",
   "license": "ISC",
   "dependencies": {
