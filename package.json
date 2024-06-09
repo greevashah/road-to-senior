@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node main",
+    "dev": "nodemon main.ts",
     "sample": "ts-node sample",
     "test": "echo \"Error: no test specified\" && exit 1"
-    },
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "fastify": "^4.27.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
     "uuidv4": "^6.2.13"
