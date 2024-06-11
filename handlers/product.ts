@@ -9,16 +9,17 @@ export const getProductFromId = (id:number): Promise<Product> => {
     return new Promise((resolve, reject) => {
         const matchedProduct = products.filter((p) => p.id === id);
         if(matchedProduct.length == 0){
-            reject(new Error("Product not found"));
+            reject("Product not found");
         }
         resolve(Object.assign({}, matchedProduct[0]));
     });
 }
 
-export const updateProductFromId = async (id: number, updatedProduct: Product) => {
+export const updateProductFromId = async (id: number, updatedProduct: Product): Promise<Product> => {
     const productIndex = products.findIndex((element) => element.id === id);
     if((productIndex == -1)){
-        Promise.reject(new Error("Update not possible as product not found"));
+        Promise.reject("Update not possible as product not found");
     }
     products[productIndex] = {...updatedProduct}
+    return await getProductFromId(id)
 }

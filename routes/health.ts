@@ -3,11 +3,14 @@ import { FastifyInstance, FastifyServerOptions, RouteShorthandOptions } from 'fa
 const opts: RouteShorthandOptions = {
     schema: {
       response: {
-        200: {
+        201: {
           type: 'object',
           properties: {
             message: {
               type: 'string'
+            },
+            sample: {
+              type: 'string'            
             }
           }
         }
@@ -18,7 +21,8 @@ const opts: RouteShorthandOptions = {
 
 const routes = async (fastify: FastifyInstance) => {
     fastify.get('/health', opts, async (request, reply) => {
-        return { message: 'Ok' }
+        reply.code(201)
+        reply.send({ message: 'Ok'})
     })
 }
 
