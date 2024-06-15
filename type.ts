@@ -7,6 +7,7 @@ export interface Product {
 }
 
 export type Order = {
+    id: string,
     price: number;
     products: Product[];
     address: string;

@@ -11,7 +11,7 @@ export const getProductFromId = (id:number): Promise<Product> => {
         if(matchedProduct.length == 0){
             reject("Product not found");
         }
-        resolve(Object.assign({}, matchedProduct[0]));
+        resolve(Object.assign({}, matchedProduct[0])); // Object.assign is used to avoid pass by reference
     });
 }
 
