@@ -34,7 +34,7 @@ const opts: RouteShorthandOptions = {
 type ParamsType = { id: 'string' }
 
 const productRoutes = async (fastify: FastifyInstance) => {
-    fastify.get('/products', opts, async (request, reply) => {
+    fastify.get('/products', {}, async (request, reply) => {
         const products = await getAllProducts();
         reply.send(products);
     });
