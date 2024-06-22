@@ -1,1 +1,1 @@
-[]
+[{"id":"d923601e-2454-4564-932f-070527191122","price":0,"products":[{"id":2,"name":"Computer","description":"Electronic Device","isActive":true,"quantity":0}],"address":""},{"id":"e7dd33b7-7985-4c1e-88b5-41aab82d292f","price":0,"products":[{"id":4,"name":"Keyboard","description":"Electronic Device","isActive":true,"quantity":3},{"id":3,"name":"Mouse","description":"Electronic Device","isActive":true,"quantity":18},{"id":1,"name":"Laptop","description":"Electronic Device","isActive":true,"quantity":0}],"address":""}]
