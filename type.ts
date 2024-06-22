@@ -12,3 +12,10 @@ export type Order = {
     products: Product[];
     address: string;
 }
+
+export type BodyType = { id: number, quantity: number }
+
+export interface CustomErrorInterface {
+    message: string,
+    code: string
+}
