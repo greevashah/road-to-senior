@@ -2,7 +2,7 @@ import { FastifyInstance, FastifyRequest, RouteShorthandOptions } from "fastify"
 import { Order, BodyType } from "../type";
 import { getAllProducts, getProductFromId, updateProductFromId } from "../handlers/product";
 import { getOrderFromId, createOrder } from "../handlers/order";
-const { v4: uuid } = require('uuid')
+import { sendError } from "../common/error";
 
 
 // const opts: RouteShorthandOptions = {
@@ -32,24 +32,22 @@ const orderRoutes = async (fastify: FastifyInstance) => {
         const {id} = request.params;
         try {
             const order = await getOrderFromId(id);
-            console.log("Order: ", order);
             reply.code(200);
             reply.send(order);
         }
         catch(err){
-            throw err
+            sendError(reply, err);
         }
     });
 
     fastify.post("/order", {}, async (request: FastifyRequest<{ Body: BodyType[] }>, reply) => {
         const requestedProducts: BodyType[] = request.body; // Now TypeScript knows that request.body is of type BodyType[]
-        console.log("Requested Products are:: ", requestedProducts);
         try{    
             const finalOrder = await createOrder(requestedProducts);
             reply.code(201);
             reply.send(finalOrder);
         } catch (err) {
-            throw err;
+            sendError(reply, err);
         }
     })
 

@@ -1,6 +1,7 @@
 import { FastifyInstance, FastifyRequest, RouteShorthandOptions } from "fastify";
 import { getAllProducts, getProductFromId, updateProductFromId } from "../handlers/product";
 import { Product } from "../type"
+import { sendError } from "../common/error";
 
 const opts: RouteShorthandOptions = {
     schema: {
@@ -46,8 +47,7 @@ const productRoutes = async (fastify: FastifyInstance) => {
             reply.send(product);
         }
         catch(err: any){
-            reply.code(404);
-            reply.send({ error: err.toString() });
+            sendError(reply, err);
         }
     });
 
@@ -60,8 +60,7 @@ const productRoutes = async (fastify: FastifyInstance) => {
             reply.send(updatedProduct);
         }
         catch(err: any) {
-            reply.code(404);
-            reply.send({ error: err.toString() });
+            sendError(reply, err);
         }
     });
 }

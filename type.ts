@@ -14,3 +14,8 @@ export type Order = {
 }
 
 export type BodyType = { id: number, quantity: number }
+
+export interface CustomErrorInterface {
+    message: string,
+    code: string
+}
