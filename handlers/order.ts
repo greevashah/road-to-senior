@@ -3,10 +3,11 @@ import { Order,BodyType } from "../type";
 import { readingFile, writingToFile } from "./file";
 import { getAllProducts, getProductFromId, updateProductFromId } from "./product";
 import { ERROR_MESSAGES, CustomError } from "../common/error"
+import {ORDER_DB_FILE} from '../common/config'
 
 // https://stackoverflow.com/questions/37576685/using-async-await-with-a-foreach-loop
 
-const filename = "order.json";
+const filename = ORDER_DB_FILE as string;
 
 export const getOrderFromId = (id: string): Promise<Order> => {
     return new Promise(async (resolve, reject) => {

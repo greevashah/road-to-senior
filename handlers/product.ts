@@ -1,8 +1,9 @@
 import { ERROR_MESSAGES } from "../common/error";
 import { Product, CustomErrorInterface } from "../type"
 import { readingFile, writingToFile } from "./file"
+import {PRODUCT_DB_FILE} from '../common/config'
 
-const fileName = "product.json"
+const fileName = PRODUCT_DB_FILE as string;
 
 export const getAllProducts = async (): Promise<Product[]>  => {
     try {
